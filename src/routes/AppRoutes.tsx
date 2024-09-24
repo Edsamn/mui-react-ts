@@ -8,6 +8,7 @@ import Test from '../pages/Test';
 import ReduxTest from '../pages/ReduxTest';
 import AddProduct from '../pages/AddProduct';
 import Products from '../pages/Products';
+import Transactions from '../pages/Transactions';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: '/products',
     element: <Products />,
+  },
+  {
+    path: '/transactions',
+    element: <Transactions />,
   },
 ]);
 
