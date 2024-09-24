@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ProductType {
+export interface ProductType {
   name: string;
   price: string;
   description?: string;
   active: boolean;
+  id?: number;
 }
 
 const initialState: ProductType[] = [];
@@ -14,7 +15,8 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<ProductType>) => {
-      state.push(action.payload);
+      const nextId = state.length + 1;
+      state.push({ ...action.payload, id: nextId });
       return state;
     },
   },
