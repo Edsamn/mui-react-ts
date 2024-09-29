@@ -2,11 +2,15 @@ import { combineReducers } from '@reduxjs/toolkit';
 import CategoriesSlice from './CategoriesSlice';
 import CounterSlice from './CounterSlice';
 import ProductsSlice from './ProductsSlice';
-import TransactionSlice from './TransactionSlice';
+import TransactionsSlice from './TransactionsSlice';
+import AccountsSlice from './AccountsSlice';
+import CartSlice from './CartSlice';
 
 export default combineReducers({
   counter: CounterSlice,
   categories: CategoriesSlice,
   products: ProductsSlice,
-  transactions: TransactionSlice,
+  transactions: TransactionsSlice,
+  accounts: AccountsSlice,
+  cart: CartSlice,
 });

@@ -1,32 +1,38 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface TransactionType {
+export interface TransactionType {
   balance: number;
   type: boolean;
   description?: string;
 }
 
-const initialState: TransactionType[] = [];
+export interface TransactionsState {
+  transactions: TransactionType[];
+  totalBalance: number;
+}
+
+const initialState: TransactionsState = {
+  transactions: [],
+  totalBalance: 0,
+};
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
     addBalance: (state, action: PayloadAction<TransactionType>) => {
-      action.payload.type = true;
+      state.transactions.push(action.payload);
+
       if (action.payload.type === true) {
-        action.payload.balance++;
+        state.totalBalance += action.payload.balance;
       }
-      state.push(action.payload);
-      return state;
     },
     removeBalance: (state, action: PayloadAction<TransactionType>) => {
-      action.payload.type = false;
+      state.transactions.push(action.payload);
+
       if (action.payload.type === false) {
-        action.payload.balance--;
+        state.totalBalance -= action.payload.balance;
       }
-      state.push(action.payload);
-      return state;
     },
   },
 });

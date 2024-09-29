@@ -9,6 +9,8 @@ import ReduxTest from '../pages/ReduxTest';
 import AddProduct from '../pages/AddProduct';
 import Products from '../pages/Products';
 import Transactions from '../pages/Transactions';
+import SignUp from '../pages/SignUp';
+import Store from '../pages/Store';
 
 const router = createBrowserRouter([
   {
@@ -17,9 +19,12 @@ const router = createBrowserRouter([
     errorElement: <Error404 />,
   },
   {
+    path: '/signup',
+    element: <SignUp />,
+  },
+  {
     path: '/home',
     element: <Home />,
-    errorElement: <Error404 />,
   },
   {
     path: '/students',
@@ -48,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: '/transactions',
     element: <Transactions />,
+  },
+  {
+    path: '/store',
+    element: <Store />,
   },
 ]);
 
