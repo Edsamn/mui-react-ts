@@ -5,6 +5,7 @@ import ProductsSlice from './ProductsSlice';
 import TransactionsSlice from './TransactionsSlice';
 import AccountsSlice from './AccountsSlice';
 import CartSlice from './CartSlice';
+import ThemeSlice from './ThemeSlice';
 
 export default combineReducers({
   counter: CounterSlice,
@@ -13,4 +14,5 @@ export default combineReducers({
   transactions: TransactionsSlice,
   accounts: AccountsSlice,
   cart: CartSlice,
+  theme: ThemeSlice,
 });
