@@ -15,6 +15,7 @@ interface MyAppBarProps {
 function MyAppBar({ actionMenu }: MyAppBarProps) {
   const counterRedux = useAppSelector(state => state.counter);
   const cartRedux = useAppSelector(state => state.cart);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="error" position="static">

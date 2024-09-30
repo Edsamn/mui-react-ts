@@ -17,12 +17,13 @@ const cartSlice = createSlice({
     },
 
     clearCart: state => {
-      state = [];
+      const arrayLength = state.length;
+      state.splice(0, arrayLength);
       return state;
     },
   },
 });
 
-export const { addProductToCart } = cartSlice.actions;
+export const { addProductToCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

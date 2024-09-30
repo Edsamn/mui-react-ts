@@ -14,7 +14,7 @@ import Store from '../pages/Store';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />,
     errorElement: <Error404 />,
   },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
     element: <Transactions />,
   },
   {
-    path: '/store',
+    path: '/',
     element: <Store />,
   },
 ]);
