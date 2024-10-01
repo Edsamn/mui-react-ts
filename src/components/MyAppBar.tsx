@@ -11,6 +11,9 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { setTheme } from '../store/models/ThemeSlice';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
+import { useState } from 'react';
+import Modal from './Modal';
+import { clearCart } from '../store/models/CartSlice';
 
 interface MyAppBarProps {
   actionMenu: () => void;
@@ -20,6 +23,10 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
   const cartRedux = useAppSelector(state => state.cart);
   const themeRedux = useAppSelector(state => state.theme);
   const dispatch = useAppDispatch();
+  const [open, setOpen] = useState<boolean>(false);
+
+  const totalPrice = cartRedux.reduce((acc, item) => acc + Number(item.price), 0);
+  console.log(cartRedux);
 
   function handleTheme() {
     if (themeRedux.theme === 'dark') {
@@ -27,6 +34,14 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
     } else {
       dispatch(setTheme({ theme: 'dark' }));
     }
+  }
+
+  function toggleModal() {
+    setOpen(!open);
+  }
+
+  function deleteProducts() {
+    dispatch(clearCart());
   }
 
   return (
@@ -45,7 +60,7 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Carrinho
             <Badge badgeContent={cartRedux.length} color="primary">
-              <AddShoppingCartIcon color="action" />
+              <AddShoppingCartIcon onClick={toggleModal} color="action" />
             </Badge>
           </Typography>
           <IconButton onClick={handleTheme}>
@@ -53,6 +68,21 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
           </IconButton>
         </Toolbar>
       </AppBar>
+      {open ? (
+        <Modal
+          actionCancel={toggleModal}
+          actionConfirm={deleteProducts}
+          title={`Meu carrinho - Total: R$${totalPrice}`}
+          content={cartRedux.map((item, index) => (
+            <Typography sx={{ padding: '5px' }} key={index}>
+              Produto:
+              {item.name}, preço: R${item.price}
+            </Typography>
+          ))}
+        />
+      ) : (
+        ''
+      )}
     </Box>
   );
 }

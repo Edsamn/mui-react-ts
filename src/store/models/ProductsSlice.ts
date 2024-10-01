@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface ProductType {
   name: string;
-  price: string;
+  price: number;
   description?: string;
   active: boolean;
   id?: number;
