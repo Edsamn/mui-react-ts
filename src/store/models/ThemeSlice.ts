@@ -14,9 +14,10 @@ const themeSlice = createSlice({
   reducers: {
     setTheme: (state, action: PayloadAction<ThemeType>) => {
       state = action.payload;
+      return state;
     },
   },
 });
 
-export default themeSlice.reducer;
 export const { setTheme } = themeSlice.actions;
+export default themeSlice.reducer;

@@ -1,6 +1,4 @@
 import { Provider } from 'react-redux';
-import GlobalStyled from './config/GlobalStyled';
-import DefaultTheme from './config/theme/DefaultTheme';
 import ConfirmationModalProvider from './contexts/ConfirmationModalContext';
 import ContactsProvider from './contexts/ContactsContext';
 import UserProvider from './contexts/UserContext';
@@ -8,22 +6,22 @@ import AppRoutes from './routes/AppRoutes';
 import { store } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor } from './store/store';
+import MyTheme from './config/theme/MyTheme';
 
 function App() {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <UserProvider>
-          <ContactsProvider>
-            <ConfirmationModalProvider>
-              <DefaultTheme>
+      <MyTheme>
+        <PersistGate persistor={persistor}>
+          <UserProvider>
+            <ContactsProvider>
+              <ConfirmationModalProvider>
                 <AppRoutes />
-                <GlobalStyled />
-              </DefaultTheme>
-            </ConfirmationModalProvider>
-          </ContactsProvider>
-        </UserProvider>
-      </PersistGate>
+              </ConfirmationModalProvider>
+            </ContactsProvider>
+          </UserProvider>
+        </PersistGate>
+      </MyTheme>
     </Provider>
   );
 }

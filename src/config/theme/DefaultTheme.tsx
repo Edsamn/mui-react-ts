@@ -1,19 +1,20 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { createTheme } from '@mui/material/styles';
 
-const theme = {
-  colors: {
-    primary: '#b83bfe',
-    secondary: '#333',
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#45e536',
+      main: '#61d24d',
+      dark: '#53b83c',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#cece29',
+      main: '#c4e90c',
+      dark: '#bfc21e',
+      contrastText: '#000',
+    },
   },
-};
+});
 
-interface DefaultThemeProps {
-  children: React.ReactNode;
-}
-
-function DefaultTheme({ children }: DefaultThemeProps) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
-
-export default DefaultTheme;
+export default theme;

@@ -1,10 +1,7 @@
 import { ReactNode, useState } from 'react';
-import AppStyled from '../../components/AppStyled';
-import FooterApp from '../../components/FooterApp';
-import NavigationMenu from '../../components/NavigationMenu';
 import MyAppBar from '../../components/MyAppBar';
 import MyDrawer from '../../components/MyDrawer';
-import { Container } from '@mui/material';
+import { Container, useTheme } from '@mui/material';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
 interface DefaultLayoutProps {
@@ -22,20 +19,15 @@ function DefaultLayout({ children, config }: DefaultLayoutProps) {
     setOpenDrawer(!openDrawer);
   }
 
+  const theme = useTheme();
+
   return (
-    <>
+    <div style={{ backgroundColor: theme.palette.primary.contrastText }}>
       <MyAppBar actionMenu={handleOpen} />
       <MyDrawer open={openDrawer} actionClose={handleOpen} />
       <ConfirmationModal />
       <Container>{children}</Container>
-    </>
-    // <AppStyled>
-    //   {config?.navigation !== false && <NavigationMenu />}
-
-    //   {children}
-
-    //   {config?.footer !== false && <FooterApp />}
-    // </AppStyled>
+    </div>
   );
 }
 

@@ -5,9 +5,12 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import MailIcon from '@mui/icons-material/Mail';
-import { useAppSelector } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { Badge } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { setTheme } from '../store/models/ThemeSlice';
+import BedtimeIcon from '@mui/icons-material/Bedtime';
+import Brightness5Icon from '@mui/icons-material/Brightness5';
 
 interface MyAppBarProps {
   actionMenu: () => void;
@@ -15,10 +18,20 @@ interface MyAppBarProps {
 function MyAppBar({ actionMenu }: MyAppBarProps) {
   const counterRedux = useAppSelector(state => state.counter);
   const cartRedux = useAppSelector(state => state.cart);
+  const themeRedux = useAppSelector(state => state.theme);
+  const dispatch = useAppDispatch();
+
+  function handleTheme() {
+    if (themeRedux.theme === 'dark') {
+      dispatch(setTheme({ theme: 'light' }));
+    } else {
+      dispatch(setTheme({ theme: 'dark' }));
+    }
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar color="error" position="static">
+      <AppBar color="primary" position="static">
         <Toolbar>
           <IconButton onClick={actionMenu} size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
@@ -35,6 +48,9 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
               <AddShoppingCartIcon color="action" />
             </Badge>
           </Typography>
+          <IconButton onClick={handleTheme}>
+            {themeRedux.theme === 'dark' ? <BedtimeIcon color="secondary" /> : <Brightness5Icon color="secondary" />}
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
