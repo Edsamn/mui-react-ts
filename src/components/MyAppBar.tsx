@@ -60,7 +60,7 @@ function MyAppBar({ actionMenu }: MyAppBarProps) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Carrinho
             <Badge badgeContent={cartRedux.length} color="primary">
-              <AddShoppingCartIcon onClick={toggleModal} color="action" />
+              <AddShoppingCartIcon onClick={toggleModal} sx={{ cursor: 'pointer' }} color="action" />
             </Badge>
           </Typography>
           <IconButton onClick={handleTheme}>
