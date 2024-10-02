@@ -22,7 +22,7 @@ function DefaultLayout({ children, config }: DefaultLayoutProps) {
   const theme = useTheme();
 
   return (
-    <div style={{ backgroundColor: theme.palette.primary.contrastText }}>
+    <div style={{ backgroundColor: theme.palette.primary.contrastText, height: '100%' }}>
       <MyAppBar actionMenu={handleOpen} />
       <MyDrawer open={openDrawer} actionClose={handleOpen} />
       <ConfirmationModal />
