@@ -34,8 +34,7 @@ async function doGet(url: string, token: string) {
     });
 
     if (response.status === 200) {
-      auth = true;
-      return { ...response.data, auth };
+      return response.data;
     }
 
     return { success: false, msg: 'Erro do get', auth: true };
