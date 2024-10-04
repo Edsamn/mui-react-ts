@@ -22,9 +22,7 @@ function HarryPotter() {
 
   return (
     <>
-      <Box
-        sx={{ width: '100vw', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center' }}
-      >
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center' }}>
         {hPRedux.characters.map(character => (
           <Box
             key={character.id}
