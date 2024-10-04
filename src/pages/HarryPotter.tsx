@@ -36,7 +36,7 @@ function HarryPotter() {
               flexDirection: 'column',
               justifyContent: 'flex-end',
               alignItems: 'flex-end',
-              color: 'white',
+              color: 'gray',
               margin: '10px',
             }}
           >
