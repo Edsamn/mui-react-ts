@@ -36,13 +36,17 @@ function HarryPotter() {
               flexDirection: 'column',
               justifyContent: 'flex-end',
               alignItems: 'flex-end',
-              color: 'gray',
+              color: 'blue',
               margin: '10px',
             }}
           >
             <Typography variant="h5">{character.name}</Typography>
             {`${character.wizard}` ? <Typography>Bruxo: Sim</Typography> : <Typography>Bruxo: Não</Typography>}
-            <Typography>{character.house}</Typography>
+            {`${character.house}` ? (
+              <Typography>Casa: {character.house}</Typography>
+            ) : (
+              <Typography>Casa: Não possui</Typography>
+            )}
           </Box>
         ))}
       </Box>
