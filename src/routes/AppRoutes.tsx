@@ -10,7 +10,8 @@ import AddProduct from '../pages/AddProduct';
 import Products from '../pages/Products';
 import Transactions from '../pages/Transactions';
 import SignUp from '../pages/SignUp';
-import Store from '../pages/Store';
+// import Store from '../pages/Store';
+import HarryPotter from '../pages/HarryPotter';
 
 const router = createBrowserRouter([
   {
@@ -54,9 +55,13 @@ const router = createBrowserRouter([
     path: '/transactions',
     element: <Transactions />,
   },
+  // {
+  //   path: '/store',
+  //   element: <Store />,
+  // },
   {
     path: '/',
-    element: <Store />,
+    element: <HarryPotter />,
   },
 ]);
 
