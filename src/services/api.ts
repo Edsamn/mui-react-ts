@@ -30,11 +30,11 @@ async function doGet(url: string, token: string) {
   let auth = false;
   try {
     const response = await apiClient.get(url, {
-      headers: { Authorization: token },
+      headers: { Authorization: `Bearer ${token}` },
     });
 
     if (response.status === 200) {
-      return response.data;
+      return { ...response.data, auth: true };
     }
 
     return { success: false, msg: 'Erro do get', auth: true };

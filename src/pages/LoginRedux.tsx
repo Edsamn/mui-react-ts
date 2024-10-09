@@ -5,7 +5,7 @@ import { useAppSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function LoginRedux() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
@@ -95,4 +95,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginRedux;

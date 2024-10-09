@@ -7,6 +7,7 @@ import AccountsSlice from './AccountsSlice';
 import CartSlice from './CartSlice';
 import ThemeSlice from './ThemeSlice';
 import HarryPotterSlice from './HarryPotterSlice';
+import UsersSlice from './UsersSlice';
 
 export default combineReducers({
   counter: CounterSlice,
@@ -17,4 +18,5 @@ export default combineReducers({
   cart: CartSlice,
   theme: ThemeSlice,
   characters: HarryPotterSlice,
+  users: UsersSlice,
 });

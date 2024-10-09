@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Error404 from '../pages/Error404';
-import Login from '../pages/Login';
 import Students from '../pages/Students';
 import CreateStudent from '../pages/CreateStudent';
 import Test from '../pages/Test';
@@ -12,11 +11,12 @@ import Transactions from '../pages/Transactions';
 import SignUp from '../pages/SignUp';
 // import Store from '../pages/Store';
 import HarryPotter from '../pages/HarryPotter';
+import LoginRedux from '../pages/LoginRedux';
 
 const router = createBrowserRouter([
   {
     path: '/login',
-    element: <Login />,
+    element: <LoginRedux />,
     errorElement: <Error404 />,
   },
   {
